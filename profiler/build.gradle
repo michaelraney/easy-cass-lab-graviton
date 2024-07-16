@@ -16,13 +16,13 @@ apply plugin: 'de.undercouch.download'
 def profilerSourceLocation = "$buildDir/resources/com/rustyrazorblade/easycasslab/commands/origin/provisioning/cassandra"
 
 task download(type: Download) {
-    src 'https://github.com/jvm-profiling-tools/async-profiler/releases/download/v1.7/async-profiler-1.7-linux-x64.tar.gz'
+    src 'https://github.com/async-profiler/async-profiler/releases/download/v3.0/async-profiler-3.0-linux-arm64.tar.gz'
     dest buildDir
     overwrite false
 }
 
 task untar(type: Copy) {
-    from tarTree(resources.gzip("$buildDir/async-profiler-1.7-linux-x64.tar.gz"))
+    from tarTree(resources.gzip("$buildDir/async-profiler-3.0-linux-arm64.tar.gz"))
     into "$buildDir/profiler"
     dependsOn("download")
 }

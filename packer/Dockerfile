@@ -2,6 +2,8 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+# ENV PACKER_LOG=1
+
 # Update apt package list and install Python 3 and Bash.
 # Ubuntu's default shell is Bash, but we ensure it's the latest version.
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -19,7 +21,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # Set Python 3 as the default python
 RUN ln -s /usr/bin/python3 /usr/bin/python
-RUN wget https://github.com/mikefarah/yq/releases/download/v4.41.1/yq_linux_amd64 -O /usr/local/bin/yq && chmod +x /usr/local/bin/yq
+wget https://github.com/mikefarah/yq/releases/download/v4.41.1/yq_linux_arm64 -O /usr/local/bin/yq && chmod +x /usr/local/bin/yq
 
 # sudo hack
 RUN echo "#!/bin/bash\n\$@" > /usr/bin/sudo

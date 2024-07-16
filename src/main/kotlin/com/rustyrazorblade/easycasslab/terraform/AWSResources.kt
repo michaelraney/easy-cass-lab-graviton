@@ -35,7 +35,7 @@ data class Provider(val region: String,
 
 data class InstanceResource(
     var ami: String = "",
-    val instance_type: String = "m5d.xlarge",
+    val instance_type: String = "c7gd.2xlarge",
     val tags: Map<String, String> = mapOf(),
     val vpc_security_group_ids : List<String> = listOf(),
     val key_name : String = "\${var.key_name}",

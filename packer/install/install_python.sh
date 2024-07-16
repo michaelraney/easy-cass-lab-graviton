@@ -18,8 +18,8 @@ echo 'eval "$(pyenv virtualenv-init -)"'
 
 # now load it in for Packer build
 export PATH="$HOME/.pyenv/bin:$PATH"
-eval $(pyenv init --path)
-eval $(pyenv virtualenv-init -)
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
 # now install python
 pyenv install 2.7.18
 pyenv install 3.10.6

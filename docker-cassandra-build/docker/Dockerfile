@@ -7,6 +7,7 @@ RUN apt update && apt-get install -y  \
    devscripts \
    git \
    openjdk-8-jdk \
+   openjdk-11-jdk \
    debhelper \
    python-dev \
    dpatch \

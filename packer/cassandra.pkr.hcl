@@ -9,7 +9,7 @@ packer {
 
 variable "arch" {
   type = string
-  default = "amd64"
+  default = "aarch64"
 }
 
 variable "region" {
@@ -30,7 +30,7 @@ locals {
 
 source "amazon-ebs" "ubuntu" {
   ami_name      = "rustyrazorblade/images/easy-cass-lab-cassandra-${var.arch}-${local.version}"
-  instance_type = "c3.xlarge"
+  instance_type = "c7gd.xlarge"
   region        = "${var.region}"
   source_ami_filter {
     filters = {
@@ -58,7 +58,7 @@ build {
 
   provisioner "shell" {
       inline = [
-        "sudo umount -l -f /mnt", # needed early on before we do anything with /mnt
+        # "sudo umount -l -f /mnt", # needed early on before we do anything with /mnt
         "sudo apt update",
         "sudo apt upgrade -y",
         "sudo apt update"

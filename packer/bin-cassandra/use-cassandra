@@ -45,14 +45,16 @@ if [ -z "$PY_VERSION" ]; then
   exit 1
 fi
 
-# if java version = 8 then run update-java-alternatives -s java-1.8.0-openjdk-amd64
+# if java version = 8 then run update-java-alternatives -s java-1.8.0-openjdk-arm64
 if [ "$JAVA_VERSION" = "8" ]; then
-  sudo update-java-alternatives -s java-1.8.0-openjdk-amd64
-# if java version = 11 then run update-java-alternatives -s java-1.11.0-openjdk-amd64
+  sudo update-java-alternatives -s java-1.8.0-openjdk-arm64
+# if java version = 11 then run update-java-alternatives -s java-1.11.0-openjdk-arm64
 elif [ "$JAVA_VERSION" = "11" ]; then
-  sudo update-java-alternatives -s java-1.11.0-openjdk-amd64
+#  sudo update-java-alternatives -s java-1.11.0-openjdk-arm64
+   sudo update-java-alternatives -s java-11-amazon-corretto
 elif [ "$JAVA_VERSION" = "17" ]; then
-  sudo update-java-alternatives -s java-1.17.0-openjdk-amd64
+#  sudo update-java-alternatives -s java-1.17.0-openjdk-arm64
+   sudo update-java-alternatives -s java-17-amazon-corretto
 else
   echo "Unknown java version $JAVA_VERSION"
   exit 1

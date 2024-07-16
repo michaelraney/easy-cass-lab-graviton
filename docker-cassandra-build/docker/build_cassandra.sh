@@ -14,8 +14,8 @@ rsync -av --exclude-from=/excludes.txt . $BUILD_DIRECTORY
 
 cd $BUILD_DIRECTORY
 
-export JAVA8_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
-export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+export JAVA8_HOME=/usr/lib/jvm/java-1.11.0-openjdk-arm64
+export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-arm64
 
 # Install build dependencies and build package
 echo "y" | mk-build-deps --install

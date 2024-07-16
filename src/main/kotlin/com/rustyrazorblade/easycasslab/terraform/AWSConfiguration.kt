@@ -28,9 +28,9 @@ class AWSConfiguration(var name: String,
                        val open: Boolean,
                        val ebs: EBSConfiguration,
                        var numCassandraInstances : Int = 3,
-                       var cassandraInstanceType : String = "m5d.xlarge",
+                       var cassandraInstanceType : String = "c7gd.xlarge",
                        var numStressInstances : Int = 0,
-                       var stressInstanceType : String = "c7i.2xlarge"
+                       var stressInstanceType : String = "c7gd.2xlarge"
     ) {
 
     val logger = logger()
@@ -263,7 +263,7 @@ class TerraformConfig(@JsonIgnore val region: String = "",
     }
 
     companion object {
-        val amiName = System.getProperty("easycasslab.ami.name", "rustyrazorblade/images/easy-cass-lab-cassandra-amd64-*")
+        val amiName = System.getProperty("easycasslab.ami.name", "rustyrazorblade/images/easy-cass-lab-cassandra-aarch64-*")
         val amiOwner = System.getProperty("easycasslab.ami.owner", "self")
     }
 }

@@ -10,7 +10,8 @@ sudo chown -R cassandra:cassandra /mnt/cassandra
 
 # used to skip the expensive checkstyle checks
 
-sudo update-java-alternatives -s java-1.11.0-openjdk-amd64
+# sudo update-java-alternatives -s java-1.11.0-openjdk-arm64
+sudo update-java-alternatives -s java-11-amazon-corretto
 
 lsblk
 

@@ -15,7 +15,7 @@ jobs:
       - run: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
       - run: sudo apt-key fingerprint 0EBFCD88
       - run: |
-          sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+          sudo add-apt-repository "deb [arch=arm64] https://download.docker.com/linux/ubuntu bionic stable"
 
       - run: sudo apt-get update
       - checkout

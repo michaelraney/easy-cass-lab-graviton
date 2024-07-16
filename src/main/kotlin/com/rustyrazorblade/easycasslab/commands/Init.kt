@@ -31,10 +31,10 @@ class Init(@JsonIgnore val context: Context) : ICommand {
     var start = false
 
     @Parameter(description = "Instance Type.  Set EASY_CASS_LAB_INSTANCE_TYPE to set a default.", names = ["--instance", "-i"])
-    var instanceType =  System.getenv("EASY_CASS_LAB_INSTANCE_TYPE") ?: "r3.2xlarge"
+    var instanceType =  System.getenv("EASY_CASS_LAB_INSTANCE_TYPE") ?: "c7gd.2xlarge"
 
     @Parameter(description = "Stress Instance Type.  Set EASY_CASS_LAB_STRESS_INSTANCE_TYPE to set a default.", names = ["--stress-instance", "-si", "--si"])
-    var stressInstanceType =  System.getenv("EASY_CASS_LAB_STRESS_INSTANCE_TYPE") ?: "c7i.2xlarge"
+    var stressInstanceType =  System.getenv("EASY_CASS_LAB_STRESS_INSTANCE_TYPE") ?: "c7gd.2xlarge"
 
     @Parameter(description = "Limit to specified availability zones", names = ["--azs", "--az", "-z"], listConverter = AZConverter::class)
     var azs: List<String> = listOf()
