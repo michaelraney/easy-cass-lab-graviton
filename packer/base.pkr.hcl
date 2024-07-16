@@ -16,6 +16,7 @@ variable "region" {
   type = string
   default = "us-west-2"
 }
+
 variable "release_version" {
   type    = string
   default = ""
@@ -24,11 +25,13 @@ variable "release_version" {
 locals {
   timestamp = regex_replace(timestamp(), "[- TZ:]", "")
   version = var.release_version != "" ? var.release_version : local.timestamp
+  ami_groups = var.release_version != "" ? ["all"] : []
 }
 
 source "amazon-ebs" "ubuntu" {
   ami_name      = "rustyrazorblade/images/easy-cass-lab-base-${var.arch}-${local.version}"
   instance_type = "c7gd.xlarge"
+  ami_groups    = local.ami_groups
   region        = "${var.region}"
   source_ami_filter {
     filters = {
@@ -59,7 +62,9 @@ build {
       "sudo apt update",
       "sudo apt upgrade -y",
       "sudo apt update",
-      "sudo apt install -y wget sysstat unzip ripgrep ant ant-optional tree zfsutils-linux", # bpftrace was removed b/c it breaks bcc tools, need to build latest from source
+
+      # bpftrace was removed b/c it breaks bcc tools, need to build latest from source
+      "sudo apt install -y wget sysstat unzip ripgrep ant ant-optional tree zfsutils-linux cpuid nicstat",
       "sudo wget https://github.com/mikefarah/yq/releases/download/v4.41.1/yq_linux_arm64 -O /usr/local/bin/yq",
       "sudo chmod +x /usr/local/bin/yq",
     ]
