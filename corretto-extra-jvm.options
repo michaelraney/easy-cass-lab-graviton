@@ -1,0 +1,9 @@
+
+# There are numerous options that control the JVM and may lead to better performance.
+# https://github.com/aws/aws-graviton-getting-started/blob/main/java.md
+
+-XX:-TieredCompilation
+-XX:ReservedCodeCacheSize=64M
+-XX:InitialCodeCacheSize=64M
+-XX:+UnlockDiagnosticVMOptions
+-XX:+UseAESCTRIntrinsics
