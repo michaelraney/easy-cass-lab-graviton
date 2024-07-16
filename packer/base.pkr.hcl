@@ -64,7 +64,7 @@ build {
       "sudo apt update",
 
       # bpftrace was removed b/c it breaks bcc tools, need to build latest from source
-      "sudo apt install -y wget sysstat unzip ripgrep ant ant-optional tree zfsutils-linux cpuid nicstat",
+      "sudo apt install -y wget sysstat unzip ripgrep ant ant-optional tree zfsutils-linux nicstat",
       "sudo wget https://github.com/mikefarah/yq/releases/download/v4.41.1/yq_linux_arm64 -O /usr/local/bin/yq",
       "sudo chmod +x /usr/local/bin/yq",
     ]

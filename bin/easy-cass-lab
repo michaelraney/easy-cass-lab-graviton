@@ -12,5 +12,8 @@ JAR=$(find ${BASE_CLUSTER_DIR}/build/libs -name 'easy-cass-lab-*-all.jar' | sort
 
 VERSION=$(grep '^version' gradle.properties | cut -d '=' -f2)
 
-java -Deasycasslab.version=$VERSION -jar $JAR "$@"
+if [ -z "${VERSION}" ]; then
+    VERSION=2
+fi
 
+java -Deasycasslab.version=$VERSION -jar $JAR "$@"
