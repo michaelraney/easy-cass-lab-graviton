@@ -2,7 +2,7 @@
 buildscript {
     ext.kotlin_version = "1.9.0"
     ext.jcommander_version = '1.82'
-    ext.docker_compose_version = "0.9.4"
+    ext.docker_compose_version = "0.16.6"
 
     repositories {
         mavenCentral()
